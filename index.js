@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('677281547')
+    res.send('im test bot')
 })
 
 // for Facebook verification
@@ -49,7 +49,9 @@ app.post('/webhook/', function (req, res) {
     res.sendStatus(200)
 })
 
-
+// environment variables are set in heroku under the settings tab. This takes care of the prod environment.
+// local environment is set in the command line. E.g: export FB_PAGE_ACCESS_TOKEN=fake-access-token-dhsa09uji4mlkasdfsd
+// this will set the token locally. It's done so we don't commit the token to git repository
 const token = process.env.FB_PAGE_ACCESS_TOKEN
 
 function sendTextMessage(sender, text) {
